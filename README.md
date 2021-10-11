@@ -1,6 +1,5 @@
 <h1>Test : Sagara Backend Developer </h1>
 
-<h3>Documentation</h3>
 
 <li><a href='https://documenter.getpostman.com/view/3324866/UV5RnLgi'>API Reference</a></li>
 
