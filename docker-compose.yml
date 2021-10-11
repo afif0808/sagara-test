@@ -1,0 +1,28 @@
+version: '3.0'
+services:
+  app_db:
+    container_name : app_db
+    image: mysql:latest
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: sagara_test
+    volumes:
+    - ./data:/var/lib/mysql
+  app:
+    container_name: app
+    ports: 
+      - 8080:8080 
+    build:
+      context : .
+      dockerfile: ./Dockerfile
+    working_dir: /media/afif0808/data/goprojects/github.com/afif0808/sagara-test
+    volumes:
+      - .:/media/afif0808/data/goprojects/github.com/afif0808/sagara-test
+    command : "go run cmd/main.go"
+    links:
+      - app_db
+  
+    
